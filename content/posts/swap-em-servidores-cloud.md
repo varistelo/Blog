@@ -1,7 +1,7 @@
 ---
 title: Swap em servidores Cloud
 date: 2020-03-16
-draft: true
+draft: false
 tags:
   - cloud
   - memoria
@@ -21,7 +21,7 @@ Testado em servidores Debian
 `sudo chmod 600 /swapfile`
 `sudo mkswap /swapfile`
 `sudo swapon /swapfile`
-`sudo swapon -s``
+\`sudo swapon -s\`\`
 
 `#Editar fstab como root`
 `sudo vim /etc/fstab`
