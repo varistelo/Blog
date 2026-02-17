@@ -2,8 +2,6 @@ backend:
   name: github
   repo: varistelo/blog
   branch: main
-  auth_type: pkce
-  app_id: Ov23liZTRVFPF6fzicQS
 
 locale: pt
 site_url: https://blog.varistelo.com.br
