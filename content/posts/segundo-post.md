@@ -1,8 +1,13 @@
 ---
-title: "Docker Compose para Desenvolvimento Local"
+title: Docker Compose para Desenvolvimento Local
 date: 2025-07-20
-tags: ["docker", "devops", "containers"]
-categories: ["tutoriais"]
+draft: true
+tags:
+  - docker
+  - devops
+  - containers
+categories:
+  - tutoriais
 ShowToc: true
 TocOpen: true
 ---
