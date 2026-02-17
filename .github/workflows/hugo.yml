@@ -1,88 +1,67 @@
-baseURL: "https://blog.varistelo.com.br/"
-title: "Meu Portfolio"
-theme: "PaperMod"
-languageCode: "pt-br"
-defaultContentLanguage: "pt-br"
-enableEmoji: true
-copyright: "Bruno Varistelo"
+name: Deploy Hugo site to Pages
 
-pagination:
-  pagerSize: 6
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
 
-markup:
-  highlight:
-    noClasses: false
-  goldmark:
-    renderer:
-      unsafe: true
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
-params:
-  env: production
-  hideAuthor: true
-  description: "Meu site pessoal e portfolio"
-  keywords: [blog, developer, portfolio, projetos]
-  DateFormat: "2 January 2006"
-  defaultTheme: auto
-  ShowReadingTime: true
-  ShowShareButtons: false
-  ShowPostNavLinks: false
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowToc: true
-  TocOpen: false
-  ShowRssButtonInSectionTermList: true
-  hideSummary: true
-  disableSpecial1stPost: true
+defaults:
+  run:
+    shell: bash
 
-  homeInfoParams:
-    Title: "Meu Portfolio"
-    Content: "DevOps Engineer | Cloud Specialist"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.155.3
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
-  profileMode:
-    enabled: true
-    title: "Bruno Varistelo"
-    subtitle: "DevOps Engineer | Cloud Specialist"
-    imageUrl: "images/avatar.jpg"
-    imageWidth: 150
-    imageHeight: 150
-    buttons:
-      - name: "Blog"
-        url: "/posts/"
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
 
-  socialIcons:
-    - name: "github"
-      url: "https://github.com/varistelo/"
-    - name: "linkedin"
-      url: "https://www.linkedin.com/in/varistelo/"
-    - name: "rss"
-      url: "/index.xml"
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: America/Sao_Paulo
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
 
-menu:
-  main:
-    - identifier: blog
-      name: "Blog"
-      url: "/posts/"
-      weight: 1
-    - identifier: tags
-      name: "Tags"
-      url: "/tags/"
-      weight: 3
-    - identifier: search
-      name: "Busca"
-      url: "/search/"
-      weight: 4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
