@@ -1,0 +1,88 @@
+baseURL: "https://blog.varistelo.com.br/"
+title: "Meu Portfolio"
+theme: "PaperMod"
+languageCode: "pt-br"
+defaultContentLanguage: "pt-br"
+enableEmoji: true
+copyright: "Bruno Varistelo"
+
+pagination:
+  pagerSize: 6
+
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  hideAuthor: true
+  description: "Meu site pessoal e portfolio"
+  keywords: [blog, developer, portfolio, projetos]
+  DateFormat: "2 January 2006"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  ShowRssButtonInSectionTermList: true
+  hideSummary: true
+  disableSpecial1stPost: true
+
+  homeInfoParams:
+    Title: "Meu Portfolio"
+    Content: "DevOps Engineer | Cloud Specialist"
+
+  profileMode:
+    enabled: true
+    title: "Bruno Varistelo"
+    subtitle: "DevOps Engineer | Cloud Specialist"
+    imageUrl: "images/avatar.jpg"
+    imageWidth: 150
+    imageHeight: 150
+    buttons:
+      - name: "Blog"
+        url: "/posts/"
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/varistelo/"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/varistelo/"
+    - name: "rss"
+      url: "/index.xml"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: blog
+      name: "Blog"
+      url: "/posts/"
+      weight: 1
+    - identifier: tags
+      name: "Tags"
+      url: "/tags/"
+      weight: 3
+    - identifier: search
+      name: "Busca"
+      url: "/search/"
+      weight: 4

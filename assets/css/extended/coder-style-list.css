@@ -1,0 +1,51 @@
+/* Lista de posts no estilo Coder (data + titulo em linha) */
+
+.post-entry {
+  border: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+/* Data à esquerda */
+.post-entry .entry-footer {
+  order: -1;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  white-space: nowrap;
+  min-width: fit-content;
+  padding: 0;
+}
+
+/* Esconder reading time na lista */
+.post-entry .entry-footer span:not(:first-child) {
+  display: none;
+}
+
+/* Título inline */
+.post-entry .entry-header {
+  flex: 1;
+}
+
+.post-entry .entry-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Remover efeitos de card */
+.post-entry {
+  background: none !important;
+}
+
+.post-entry:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Sem bordas entre posts */
+.post-entry + .post-entry {
+  border-top: none;
+}

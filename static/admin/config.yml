@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: varistelo/blog
+  branch: main
+  auth_type: pkce
+  app_id: Ov23liZTRVFPF6fzicQS
+
+locale: pt
+site_url: https://blog.varistelo.com.br
+display_url: https://blog.varistelo.com.br
+
+media_folder: static/images
+public_folder: /images
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Titulo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Rascunho", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Categorias", name: "categories", widget: "list", required: false }
+      - { label: "Mostrar TOC", name: "ShowToc", widget: "boolean", default: true, required: false }
+      - { label: "TOC Aberto", name: "TocOpen", widget: "boolean", default: true, required: false }
+      - { label: "Conteudo", name: "body", widget: "markdown" }

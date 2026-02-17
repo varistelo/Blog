@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Docker Compose para Desenvolvimento Local | Meu Portfolio</title>
+<meta name="keywords" content="docker, devops, containers">
+<meta name="description" content="Introdução
+Vamos criar um ambiente de desenvolvimento local usando Docker Compose.
+O docker-compose.yml
+version: &#39;3.8&#39;
+
+services:
+  app:
+    build: .
+    ports:
+      - &#34;3000:3000&#34;
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+    ports:
+      - &#34;5432:5432&#34;
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+Executando
+docker-compose up -d
+docker-compose logs -f app
+Comandos Úteis
+# Parar tudo
+docker-compose down
+
+# Rebuild
+docker-compose up --build
+
+# Ver status
+docker-compose ps
+Conclusão
+Docker Compose simplifica muito o setup de desenvolvimento local.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1314/posts/segundo-post/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f7f795d461624c5d34112b0e9189ac293f17baf67e388674eb48ec081db0746e.css" integrity="sha256-9/eV1GFiTF00ESsOkYmsKT8XuvZ&#43;OIZ060jsCB2wdG4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1314/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1314/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1314/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1314/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1314/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="pt-br" href="http://localhost:1314/posts/segundo-post/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1314/posts/segundo-post/">
+  <meta property="og:site_name" content="Meu Portfolio">
+  <meta property="og:title" content="Docker Compose para Desenvolvimento Local">
+  <meta property="og:description" content="Introdução Vamos criar um ambiente de desenvolvimento local usando Docker Compose.
+O docker-compose.yml version: &#39;3.8&#39; services: app: build: . ports: - &#34;3000:3000&#34; volumes: - .:/app environment: - NODE_ENV=development db: image: postgres:15 environment: POSTGRES_DB: myapp POSTGRES_USER: admin POSTGRES_PASSWORD: secret ports: - &#34;5432:5432&#34; volumes: - pgdata:/var/lib/postgresql/data volumes: pgdata: Executando docker-compose up -d docker-compose logs -f app Comandos Úteis # Parar tudo docker-compose down # Rebuild docker-compose up --build # Ver status docker-compose ps Conclusão Docker Compose simplifica muito o setup de desenvolvimento local.">
+  <meta property="og:locale" content="pt-br">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-07-20T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Devops">
+    <meta property="article:tag" content="Containers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker Compose para Desenvolvimento Local">
+<meta name="twitter:description" content="Introdução
+Vamos criar um ambiente de desenvolvimento local usando Docker Compose.
+O docker-compose.yml
+version: &#39;3.8&#39;
+
+services:
+  app:
+    build: .
+    ports:
+      - &#34;3000:3000&#34;
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+    ports:
+      - &#34;5432:5432&#34;
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+Executando
+docker-compose up -d
+docker-compose logs -f app
+Comandos Úteis
+# Parar tudo
+docker-compose down
+
+# Rebuild
+docker-compose up --build
+
+# Ver status
+docker-compose ps
+Conclusão
+Docker Compose simplifica muito o setup de desenvolvimento local.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1314/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Docker Compose para Desenvolvimento Local",
+      "item": "http://localhost:1314/posts/segundo-post/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Docker Compose para Desenvolvimento Local",
+  "name": "Docker Compose para Desenvolvimento Local",
+  "description": "Introdução Vamos criar um ambiente de desenvolvimento local usando Docker Compose.\nO docker-compose.yml version: \u0026#39;3.8\u0026#39; services: app: build: . ports: - \u0026#34;3000:3000\u0026#34; volumes: - .:/app environment: - NODE_ENV=development db: image: postgres:15 environment: POSTGRES_DB: myapp POSTGRES_USER: admin POSTGRES_PASSWORD: secret ports: - \u0026#34;5432:5432\u0026#34; volumes: - pgdata:/var/lib/postgresql/data volumes: pgdata: Executando docker-compose up -d docker-compose logs -f app Comandos Úteis # Parar tudo docker-compose down # Rebuild docker-compose up --build # Ver status docker-compose ps Conclusão Docker Compose simplifica muito o setup de desenvolvimento local.\n",
+  "keywords": [
+    "docker", "devops", "containers"
+  ],
+  "articleBody": "Introdução Vamos criar um ambiente de desenvolvimento local usando Docker Compose.\nO docker-compose.yml version: '3.8' services: app: build: . ports: - \"3000:3000\" volumes: - .:/app environment: - NODE_ENV=development db: image: postgres:15 environment: POSTGRES_DB: myapp POSTGRES_USER: admin POSTGRES_PASSWORD: secret ports: - \"5432:5432\" volumes: - pgdata:/var/lib/postgresql/data volumes: pgdata: Executando docker-compose up -d docker-compose logs -f app Comandos Úteis # Parar tudo docker-compose down # Rebuild docker-compose up --build # Ver status docker-compose ps Conclusão Docker Compose simplifica muito o setup de desenvolvimento local.\n",
+  "wordCount" : "81",
+  "inLanguage": "pt-br",
+  "datePublished": "2025-07-20T00:00:00Z",
+  "dateModified": "2025-07-20T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1314/posts/segundo-post/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Meu Portfolio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1314/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1314/" accesskey="h" title="Meu Portfolio (Alt + H)">Meu Portfolio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1314/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1314/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1314/search/" title="Busca (Alt &#43; /)" accesskey=/>
+                    <span>Busca</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1314/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1314/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Docker Compose para Desenvolvimento Local
+    </h1>
+    <div class="post-meta"><span title='2025-07-20 00:00:00 +0000 UTC'><svg class='meta-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z'/></svg> 20 julho 2025</span>&nbsp;&nbsp;<span><svg class='meta-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z'/></svg> 1 min</span>
+
+</div>
+    <div class="post-tags-header">
+      <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+        <a href="http://localhost:1314/tags/docker/" class="tag-pill">Docker</a><span class="tag-separator">·</span>
+        <a href="http://localhost:1314/tags/devops/" class="tag-pill">Devops</a><span class="tag-separator">·</span>
+        <a href="http://localhost:1314/tags/containers/" class="tag-pill">Containers</a>
+    </div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introdu%c3%a7%c3%a3o" aria-label="Introdução">Introdução</a></li>
+                <li>
+                    <a href="#o-docker-composeyml" aria-label="O docker-compose.yml">O docker-compose.yml</a></li>
+                <li>
+                    <a href="#executando" aria-label="Executando">Executando</a></li>
+                <li>
+                    <a href="#comandos-%c3%bateis" aria-label="Comandos Úteis">Comandos Úteis</a></li>
+                <li>
+                    <a href="#conclus%c3%a3o" aria-label="Conclusão">Conclusão</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introdução">Introdução<a hidden class="anchor" aria-hidden="true" href="#introdução">#</a></h2>
+<p>Vamos criar um ambiente de desenvolvimento local usando Docker Compose.</p>
+<h2 id="o-docker-composeyml">O docker-compose.yml<a hidden class="anchor" aria-hidden="true" href="#o-docker-composeyml">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.8&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">app</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;3000:3000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">.:/app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">NODE_ENV=development</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">postgres:15</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l">myapp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;5432:5432&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">pgdata:/var/lib/postgresql/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pgdata</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></div><h2 id="executando">Executando<a hidden class="anchor" aria-hidden="true" href="#executando">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose up -d
+</span></span><span class="line"><span class="cl">docker-compose logs -f app
+</span></span></code></pre></div><h2 id="comandos-úteis">Comandos Úteis<a hidden class="anchor" aria-hidden="true" href="#comandos-úteis">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Parar tudo</span>
+</span></span><span class="line"><span class="cl">docker-compose down
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Rebuild</span>
+</span></span><span class="line"><span class="cl">docker-compose up --build
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Ver status</span>
+</span></span><span class="line"><span class="cl">docker-compose ps
+</span></span></code></pre></div><h2 id="conclusão">Conclusão<a hidden class="anchor" aria-hidden="true" href="#conclusão">#</a></h2>
+<p>Docker Compose simplifica muito o setup de desenvolvimento local.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>Bruno Varistelo &bull; &copy; 2026</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
