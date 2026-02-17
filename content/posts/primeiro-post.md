@@ -1,8 +1,13 @@
 ---
-title: "Configurando um Cluster Kubernetes com Terraform"
+title: Configurando um Cluster Kubernetes com Terraform
 date: 2025-06-15
-tags: ["kubernetes", "terraform", "devops"]
-categories: ["tutoriais"]
+draft: true
+tags:
+  - kubernetes
+  - terraform
+  - devops
+categories:
+  - tutoriais
 ShowToc: true
 TocOpen: true
 ---
