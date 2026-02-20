@@ -39,6 +39,8 @@ params:
   ShowRssButtonInSectionTermList: true
   hideSummary: true
   disableSpecial1stPost: true
+  gaId: ""       # Injetado via secret HUGO_PARAMS_GAID no GitHub Actions
+  clarityId: "" # Injetado via secret HUGO_PARAMS_CLARITYID no GitHub Actions
 
   homeInfoParams:
     Title: "Meu Portfolio"
