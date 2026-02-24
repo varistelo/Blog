@@ -10,7 +10,7 @@ ShowToc: false
 TocOpen: false
 ---
 
-##### 
+#####
 
 Uma forma de melhor a segurança no Bucket S3 da Amazon é ativar alguns limits na política, como por exemplo:
 
@@ -25,7 +25,7 @@ Uma forma de melhor a segurança no Bucket S3 da Amazon é ativar alguns limits 
 | `s3:GetIntelligentTieringConfiguration` | Ler configuração do Intelligent-Tiering (otimização de custo automática) |
 | `s3:PutIntelligentTieringConfiguration` | Criar/alterar essa configuração |
 
-##### 
+#####
 **Statement 2 — Permissões nos objetos dentro do bucket**
 
 | Ação | O que faz |
@@ -36,7 +36,7 @@ Uma forma de melhor a segurança no Bucket S3 da Amazon é ativar alguns limits 
 | `s3:PutObject` | Fazer upload de arquivos |
 | `s3:DeleteObject` | Deletar arquivos |
 
-#### 
+####
 Política a ser aplicada no user IAM
 
 ```plain
